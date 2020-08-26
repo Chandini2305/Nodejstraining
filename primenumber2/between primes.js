@@ -12,7 +12,8 @@ function find_primes()
         }
         if(notPrime==false)
         {
-            console.log(i);
+            return i;
         }
     }
 }
+console.log(find_primes());
