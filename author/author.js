@@ -1,18 +1,19 @@
-function showAuthor(a){
-    console.log(`***AUTHOR***\nId=${a.Id}\nName=${a.Name}\nBiography=${a.Biograpghy}\nBirthday=${a.Birthday}\nEmail=${a.Email}\nPhotograph Url=${a.PhotographUrl}\nAlistofbooks=${a.BookList}`);
+function createAuthor(id,name,biography,birthday,email,photographurl,bookList){
+    this.id=id;
+    this.name=name;
+    this.biography=biography;
+    this.bithday=birthday;
+    this.email=email;
+    this.photographurl=photographurl;
+    this.bookList=bookList;
+}
+    
+function AuthorManager(){
+    
 }
 
 
 
-let Author=new Object();
-Author.Id=1;
-Author.Name="Chetan Bhagat";
-Author.Biograpghy="kjhfkj";
-Author.Birthday="15-07-1890";
-Author.Email="chetan@gmail.com"
-Author.PhotographUrl="https://th.bing.com/th/id/OIP.aiFOBTR4rIfNDPGsU9zsvQHaLN?pid=Api&rs=1"
-Author.BookList=10;
-showAuthor(Author);
 
 function ShowBooks(b){
 console.log(`***BOOKS***\nId=${b.Id}\nTitle=${b.Title}\nCoverPage=${b.coverpageurl}\nAuthor=${b.Author}\nPrice=${b.Price}\nRating=${b.Rating}`);
