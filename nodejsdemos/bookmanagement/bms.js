@@ -143,8 +143,15 @@ BookManager.prototype.searchByTitle=function(title){
 };
 BookManager.prototype.searchByPrice=function(min,max){
     for(let book of this.books)
-        if (this.price>=min && this.price<=max){
+        if (book.price>=min && book.price<=max){
+            return book;
+        }
 
+    return null;
+};
+BookManager.prototype.searchByRating=function(rating){
+    for(let book of this.books)
+        if (book.rating===rating){
             return book;
         }
 
@@ -186,7 +193,7 @@ console.log('Book with id',managerbook.getById('1'));
 console.log('Book by author',managerbook.getByAuthor('Bernhard Schlink'));
 console.log('Book search by title',managerbook.searchByTitle('Number the Stars'));
 console.log('Book search by price',managerbook.searchByPrice(100,300));
-
+console.log('Book search by rating',managerbook.searchByRating('3'));
 managerbook.remove('2');
 
 showAuthors(managerbook.getAll(), 'List after deleting 2nd id book');
