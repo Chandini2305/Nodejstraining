@@ -1,0 +1,26 @@
+<h1>List of Books</h1>
+<a class='btn btn-primary' href='/books/book'>Add Author</a>
+<table class='table table-condensed'>
+    <thead>
+        <tr>
+            <th>Name</th>
+             <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% for(let book of books){  %>
+        <tr>
+            <td><%= book.name %></td>
+            
+            <td>
+                <a class='btn btn-sm btn-primary' href='/books/bookdetails/<%=book.id%>'>Details</a>
+                <a class='btn btn-sm btn-primary' href='/books/edit/<%=book.id%>'>Edit</a>
+                <a class='btn btn-sm btn-danger' href='/books/delete/<%=book.id%>'>Delete</a>
+            </td>
+        </tr>
+        <%}%>
+
+    </tbody>
+
+</table>

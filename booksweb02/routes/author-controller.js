@@ -23,7 +23,7 @@ async function seed(){
     }
 }
 
-seed();
+//seed();
 
 // authorService.add(new Author('vivek-dutta-mishra','Vivek Dutta Mishra','Author of the Amazon Best Seller The Accursed God','vivek.png','vivek@conceptarchitect.in'));
 // authorService.add(new Author('jeffrey-archer','Jeffrey Archer','Contemporary best-seller fiction author','archer.png','jeffrey.archer@gmail.com'));
@@ -31,15 +31,14 @@ seed();
 
 var authorService=new AuthorService(authorRepository);
 
-
+//express calls user logic
+// for url --> /authors
 async function  getAuthorList(request,response){
-    try{
-        var authors=await authorService.getAll();
-        await response.render('authors/list', {authors:authors});
-    }catch(e){
-        console.log('error',e,e.message);
-    }
-
+    
+    //user logic to get the user data
+    var authors=await authorService.getAll();
+    //expres asks a VIEW ENGINE to create and send HTML response
+    await response.render('authors/list', {authors:authors});
 }
 
 

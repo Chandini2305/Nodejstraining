@@ -7,12 +7,14 @@ let authorRepository=new AuthorRepository();
 
 var authorService=new AuthorService(authorRepository);
 
-
-
-
+//express calls user logic
+// for url --> /authors
 async function  getAuthorList(request,response){
-    let authors=await authorService.getAll();
-    await response.send(authors);
+
+    //user logic to get user data
+    let authors=await authorService.getAll();  //user logic
+    //express sends JSON response directly to the client
+    await response.send(authors);  
 }
 
 async function addAuthor(request,response){
@@ -28,16 +30,20 @@ async function addAuthor(request,response){
     }
 }
 
+// express is responsible for passing control to user function
+//for url format -->   /authors/vivek-dutta-mishra
 async function getAuthorById(request,response){
 
+    //express extracts url part and adds to request.params
     let id= request.params.authorId; //this should be the last part of url /authors/details/:authorId
 
+    //user logic
     let author=await authorService.getById(id);
     if(author)
-        await response.send(author);
+        await response.send(author); //express
     else{
-        response.status(404); //not found
-        await response.send({error: `author not found`, id:id});
+        response.status(404); //not found -->express
+        await response.send({error: `author not found`, id:id}); //express
     }
 
 };
